@@ -3,9 +3,9 @@ django.setup()
 
 from flask import Flask
 from flask_restful import Api
+django.setup()
 
 from feed_service.service_apis.upvote import Upvote
-
 from feed_service.service_apis.answer import Answer
 from feed_service.service_apis.ping import Ping
 from feed_service.service_apis.question import Question
