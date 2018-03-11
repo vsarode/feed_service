@@ -29,7 +29,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'feedDb',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': 'as2d2p',
         'HOST': 'localhost',
         'PORT': '',
     }

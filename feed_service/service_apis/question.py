@@ -3,11 +3,25 @@ from flask_restful import Resource
 
 from feed_service.service_apis_handler import question_post_handler, \
     question_get_handler
+from feed_service.services import user_service
 from feed_service.utils import question_utils
 
 
 class Question(Resource):
     def post(self):
+        #read the auth token from cookie
+        #request the auth token to user_service and get asociated user
+        #if token is invalid return respose unauthorised
+        #if token is valid then follow the step
+        # import pdb; pdb.set_trace()
+        auth_token = request.cookies.get('authToken')
+        is_valid, user_object = user_service.validate_and_get_user(auth_token)
+
+        if not is_valid:
+            return {"success": False, "message": "Invalid User !!"}, 401
+        print user_object
+
+
         request_data = request.get_json()
         result = question_post_handler.create_question(request_data)
         if result:

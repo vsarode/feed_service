@@ -1,8 +1,12 @@
 import django
+
 django.setup()
 
 from flask import Flask
 from flask_restful import Api
+
+# from flask.ext.session import Session
+
 django.setup()
 
 from feed_service.service_apis.upvote import Upvote
@@ -12,6 +16,7 @@ from feed_service.service_apis.question import Question
 
 app = Flask(__name__)
 api = Api(app, prefix='/feedservice/')
+app.secret_key = 'super secret key'
 
 api.add_resource(Ping, 'ping/')
 api.add_resource(Question, 'question/', 'question/<string:user_id>/')
