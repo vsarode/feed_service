@@ -20,4 +20,5 @@ class Answer(Resource):
             answer_object = answer_get_handler.get_all_answer()
 
         answer_objects =[answer_utils.get_answer_dict(x) for x in answer_object]
+        type(answer_object)
         return jsonify({"answers": answer_objects })

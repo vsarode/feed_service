@@ -1,8 +1,7 @@
 from feed_service.db.feed_models.models import Question
 
 
-def create_question(request_data):
-    user_name = request_data['userId']
+def create_question(request_data, user_name):
     question_string = request_data['questionString']
 
     try:
