@@ -48,6 +48,6 @@ def get_feed_data():
         q_dict = {}
         q_dict['questionString'] = question.question_string
         q_dict['userId'] = question.user_id
-        q_dict['all_answers'] = answerList
+        q_dict['aswers'] = answerList
         qsn_list.append(q_dict)
     return qsn_list
